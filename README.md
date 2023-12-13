@@ -8,16 +8,14 @@ Features:
   3. Get All Games.
   4. Update Single Game.
   5. Delete Single Game.
+  6. Swagger documentation.
 
-To Run Locally
-  User is required to have installed NodeJS of version >= v18.
-  Provide your mongodb connection URL variable in .env file.
-  
-Install Dependecies
-  Run "npm i" to install all the dependencies from root directory.
-
-Starting the Server
-Open the terminal & run the command "npm run start" to start the server.
+**To Run Locally**
+- User is required to have installed NodeJS of version >= v18.
+- First clone the reposity and then **cd game-apis**
+- Create .env file in root directory & provide your mongodb connection URL. Variable name **DB_URL**
+- Open terminal and Run "npm i" to install all the dependencies.
+- Now run **npm run start** to start the server.
 
 # Swagger API Documentation
 Go to http://localhost:4000/api-docs to check and Test API docs.
