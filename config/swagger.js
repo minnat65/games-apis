@@ -17,7 +17,7 @@ const swagerOption = {
     },
     servers: [
       {
-        url: "http://localhost:4000",
+        url: process.env.swaggerURL, // for localhost make it http://localhost:4000
       },
     ],
   },
