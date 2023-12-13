@@ -9,6 +9,7 @@ import swaggerUi from 'swagger-ui-express';
 import { Response, RESPONSE_STATUS, RESPONSE_MESSAGE } from './appConstant.js';
 dotenv.config({ path: '.env' });
 import { initDb } from './config/database.js';
+import { swagerOption } from './config/swagger.js';
 
 const app = new express();
 
@@ -40,37 +41,14 @@ initDb()
   .then(() => {
     console.log('DB connected..');
   })
-  .catch(() => {});
+  .catch((err) => {
+    console.log('Error while connecting to DB.', err);
+  });
 
 app.use(helmet());
 
-// Swagger documentation for APIs
-const options = {
-  definition: {
-    openapi: "3.1.0",
-    info: {
-      title: "Game CRUD App",
-      version: "0.1.0",
-      description:
-        "This is a simple CRUD API application made with Express and documented with Swagger",
-      license: {
-        name: "MIT",
-        url: "https://spdx.org/licenses/MIT.html",
-      },
-      contact: {
-        name: "Minnat Ali",
-        email: "minnatali65@gmail.com",
-      },
-    },
-    servers: [
-      {
-        url: "http://localhost:4000",
-      },
-    ],
-  },
-  apis: ["./routes/game/*.js"],
-};
-const specs = swaggerJSDoc(options);
+// Swagger documentation
+const specs = swaggerJSDoc(swagerOption);
 app.use(
   "/api-docs",
   swaggerUi.serve,

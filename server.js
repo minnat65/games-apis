@@ -1,7 +1,7 @@
 import http from 'http';
 import { app } from './app.js';
 
-const port = 4000;
+const port = 4000; // we can get it from .env
 
 const server = http.createServer(app);
 
