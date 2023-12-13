@@ -18,7 +18,9 @@ import { gameRouter } from './routes/game/index.js';
 app.use(express.json({limit: '10kb'})); //uploading data should be less than or equal to 10kb
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: '10kb'}));
-app.use(cors());
+app.use(cors({
+  origin: ['https://game-apis-1.onrender.com/']
+}));
 
 // middleware
 const promisify = (req, res, next) => {
